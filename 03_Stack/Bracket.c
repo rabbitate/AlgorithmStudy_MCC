@@ -82,7 +82,7 @@ void PrintStack(Stack* Stack) {
 
 int main(int argc, const char * argv[]) {
     int input;
-    char* ps = (char*)malloc(sizeof(char) * MAX_STRING); // ps에 저장된 주소는 읽기만 할 수 있고, 쓰기가 막혀있기 때문에 따로 메모리를 할당 해주어야 문자열을 저장할 수 있다
+    char* ps = (char*)malloc(sizeof(char) * MAX_STRING); // 따로 메모리를 할당 해주어야 문자열을 저장할 수 있다
     
     scanf("%d", &input);
     Stack stack;
@@ -114,5 +114,7 @@ int main(int argc, const char * argv[]) {
             printf("NO\n");
         }
     }
+    free(ps);
+    free(stack.data);
     return 0;
 }
