@@ -6,10 +6,12 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
+int* temp; // 정렬한 데이터를 저장할 temp 배열
 
 void Merge(int data[], int start, int mid, int end) {
     int s = start; int m = mid+1;
-    int temp[end-start+1]; // 정렬한 데이터를 저장할 temp 배열
     int index = start;
     
     // 한 구역을 다 옮길 때까지 크기 순으로 temp 배열에 정렬
@@ -42,6 +44,8 @@ int main(int argc, const char * argv[]) {
     }
     
     count--;
+    
+    temp = (int*)malloc(sizeof(int) * count);
     
     MergeSort(data, 0, count-1);
     
